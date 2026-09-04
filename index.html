@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Notes App</title>
-    <link rel="stylesheet" href="./src/styles/style.css" />
   </head>
   <body>
     <app-bar></app-bar>
@@ -12,31 +11,23 @@
     <main>
       <note-input></note-input>
 
+      <div id="loadingIndicator" class="loader-container" hidden>
+        <div class="loader-status">
+          <span class="loader-dot"></span>
+          <span class="loader-text">LOADING NOTES</span>
+        </div>
+
+        <div class="loader-track">
+          <div class="loader-progress"></div>
+        </div>
+
+        <span class="loader-caption">SYNCING WITH SERVER...</span>
+      </div>
+
       <h2>Daftar Catatan</h2>
       <div id="notesContainer" class="notes-container" style="margin-top: 15px"></div>
     </main>
 
     <app-footer></app-footer>
-
-    <script type="module" src="./src/app.js"></script>
-
-    <!-- Modal Edit Catatan -->
-    <div id="editModal" class="modal">
-      <div class="modal-content">
-        <span class="close-modal">&times;</span>
-        <h2>Edit Catatan</h2>
-        <form id="editNoteForm">
-          <div class="form-group">
-            <label for="editTitle">Judul</label>
-            <input type="text" id="editTitle" required />
-          </div>
-          <div class="form-group">
-            <label for="editBody">Isi Catatan</label>
-            <textarea id="editBody" rows="5" required></textarea>
-          </div>
-          <button type="submit">Simpan Perubahan</button>
-        </form>
-      </div>
-    </div>
   </body>
 </html>
