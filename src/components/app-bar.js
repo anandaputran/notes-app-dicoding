@@ -1,15 +1,15 @@
 class AppBar extends HTMLElement {
-    connectedCallback() {
-        this.render();
-    }
+  connectedCallback() {
+    this.render();
+  }
 
-    render() {
-        this.innerHTML = `
+  render() {
+    this.innerHTML = `
         <header>
           <h1>📝 Notes App</h1>
         </header>
       `;
-    }
+  }
 }
 
-customElements.define('app-bar', AppBar);
+customElements.define("app-bar", AppBar);

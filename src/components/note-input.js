@@ -1,11 +1,11 @@
 class NoteInput extends HTMLElement {
-    connectedCallback() {
-        this.render();
-        this.initValidation();
-    }
+  connectedCallback() {
+    this.render();
+    this.initValidation();
+  }
 
-    render() {
-        this.innerHTML = `
+  render() {
+    this.innerHTML = `
         <form id="addNoteForm" class="note-form">
           <h2>Buat Catatan Baru</h2>
           
@@ -24,32 +24,32 @@ class NoteInput extends HTMLElement {
           <button type="submit" id="submitBtn">Tambah Catatan</button>
         </form>
       `;
-    }
+  }
 
-    initValidation() {
-        const titleInput = this.querySelector('#title');
-        const bodyInput = this.querySelector('#body');
-        const titleError = this.querySelector('#titleError');
-        const bodyError = this.querySelector('#bodyError');
+  initValidation() {
+    const titleInput = this.querySelector("#title");
+    const bodyInput = this.querySelector("#body");
+    const titleError = this.querySelector("#titleError");
+    const bodyError = this.querySelector("#bodyError");
 
-        titleInput.addEventListener('input', () => {
-            if (titleInput.value.trim() === '') {
-                titleError.textContent = 'Judul tidak boleh kosong.';
-            } else if (titleInput.value.length < 3) {
-                titleError.textContent = 'Judul minimal 3 karakter.';
-            } else {
-                titleError.textContent = '';
-            }
-        });
+    titleInput.addEventListener("input", () => {
+      if (titleInput.value.trim() === "") {
+        titleError.textContent = "Judul tidak boleh kosong.";
+      } else if (titleInput.value.length < 3) {
+        titleError.textContent = "Judul minimal 3 karakter.";
+      } else {
+        titleError.textContent = "";
+      }
+    });
 
-        bodyInput.addEventListener('input', () => {
-            if (bodyInput.value.trim() === '') {
-                bodyError.textContent = 'Isi catatan tidak boleh kosong.';
-            } else {
-                bodyError.textContent = '';
-            }
-        });
-    }
+    bodyInput.addEventListener("input", () => {
+      if (bodyInput.value.trim() === "") {
+        bodyError.textContent = "Isi catatan tidak boleh kosong.";
+      } else {
+        bodyError.textContent = "";
+      }
+    });
+  }
 }
 
-customElements.define('note-input', NoteInput);
+customElements.define("note-input", NoteInput);

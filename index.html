@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
@@ -24,9 +24,20 @@
         <span class="loader-caption">SYNCING WITH SERVER...</span>
       </div>
 
+      <div id="errorMessage" class="error-message" hidden></div>
+
       <h2>Daftar Catatan</h2>
-      <div id="notesContainer" class="notes-container" style="margin-top: 15px"></div>
+      <div
+        id="notesContainer"
+        class="notes-container"
+        style="margin-top: 15px"
+      ></div>
     </main>
+
+    <section class="archived-section">
+      <h2>Catatan Diarsipkan</h2>
+      <div id="archivedNotesContainer" class="notes-container"></div>
+    </section>
 
     <app-footer></app-footer>
   </body>

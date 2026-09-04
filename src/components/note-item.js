@@ -1,6 +1,6 @@
 class NoteItem extends HTMLElement {
   static get observedAttributes() {
-    return ['id', 'title', 'body', 'created-at'];
+    return ["id", "title", "body", "created-at", "archived"];
   }
 
   attributeChangedCallback() {
@@ -12,16 +12,18 @@ class NoteItem extends HTMLElement {
   }
 
   render() {
-    const id = this.getAttribute('id');
-    const title = this.getAttribute('title') || 'Tanpa Judul';
-    const body = this.getAttribute('body') || '';
-    const createdAt = this.getAttribute('created-at') || new Date().toISOString();
+    const id = this.getAttribute("id");
+    const title = this.getAttribute("title") || "Tanpa Judul";
+    const body = this.getAttribute("body") || "";
+    const createdAt =
+      this.getAttribute("created-at") || new Date().toISOString();
+    const archived = this.getAttribute("archived") === "true";
 
-    const formattedDate = new Date(createdAt).toLocaleDateString('id-ID', {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
+    const formattedDate = new Date(createdAt).toLocaleDateString("id-ID", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     });
 
     this.innerHTML = `
@@ -32,6 +34,7 @@ class NoteItem extends HTMLElement {
             <p class="note-body">${body}</p>
           </div>
           <div class="note-actions">
+          ${archived ? `<button class="btn-unarchive" data-id="${id}">Kembalikan</button>` : `<button class="btn-archive" data-id="${id}">Arsipkan</button>`}
             <button class="btn-delete" data-id="${id}">Hapus</button>
           </div>
         </article>
@@ -39,4 +42,4 @@ class NoteItem extends HTMLElement {
   }
 }
 
-customElements.define('note-item', NoteItem);
+customElements.define("note-item", NoteItem);

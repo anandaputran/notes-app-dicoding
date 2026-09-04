@@ -90,6 +90,17 @@ button:hover {
   gap: 20px;
 }
 
+/* Archived Notes Section */
+.archived-section {
+  max-width: 1000px;
+  margin: 40px auto 0;
+  padding: 0 20px;
+}
+
+.archived-section h2 {
+  margin-bottom: 20px;
+}
+
 /* Card Styles */
 .note-card {
   background-color: var(--card-bg);
@@ -147,8 +158,18 @@ button:hover {
   border-top: 1px solid #eee;
 }
 
-.btn-edit {
-  background-color: #f39c12;
+.btn-archive {
+  background-color: #1286f3;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  flex: 1;
+}
+
+.btn-unarchive {
+  background-color: #12acf3;
   color: white;
   border: none;
   padding: 8px 12px;
@@ -298,4 +319,24 @@ footer a:hover {
   100% {
     transform: translateX(290%);
   }
+}
+
+.error-message {
+  width: min(520px, 90%);
+  margin: 16px auto;
+  padding: 12px 14px;
+
+  border: 1px solid #f1b4b4;
+  border-radius: 8px;
+
+  background-color: #fff5f5;
+  color: #b42318;
+
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.error-message[hidden] {
+  display: none;
 }
